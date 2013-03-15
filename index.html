@@ -19,22 +19,36 @@
 			left:0;
 			width:100%;
 		}
-		#quotes>p{
+		#quotes>ul>li>p{
 			font-size:9px;
 			font-style:italic;
 			font-family:sans-serif;
-			color:#DDD;
+			color:#AAA;
 			margin-bottom:3px;		
 		}
-		#quotes>p:after{content:"\0022";}
-		#quotes>p:before{content:"\0022";}
+		#quotes>ul>li>p:after{content:"\0022";}
+		#quotes>ul>li>p:before{content:"\0022";}
+		ul {list-style: none;}
+		li {margin:0;padding:0;}
 		</style>
 	</head>
 	<body>
 		<p>NO</p>
 		<div id="quotes">
-			<p>Wow. What a useful site. I feel like I've been searching for this my whole life</p>
-			<p>It does exactly what is says on the tin - one of the most useful website I've ever come accross - 5 stars!</p>
-		</div>    
+			<ul id="quotelist">
+				<li><p>Wow. What a useful site. I feel like I've been searching for this my whole life</p></li>
+				<li><p>It does exactly what is says on the tin - one of the most useful websites I've ever come accross - 5 stars!</p></li>
+			</ul>
+		</div>
+		<script src="jquery.js"></script>
+		<script src="jquery-ticker.js"></script>
+		<script>
+			$(document).ready(function(){
+			    $('#quotelist').list_ticker({
+			        speed:7500,
+			        effect:'fade'
+			    })
+			})
+		</script>
   	</body>
 </html>
