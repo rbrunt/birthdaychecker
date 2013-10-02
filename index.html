@@ -35,8 +35,8 @@
 		</style>
 	</head>
 	<body>
-		<p>NO</p>
-		<p class="white">:(</p>
+		<p id="answer"></p>
+		<p id="smiley" class="white"></p>
 		<div id="quotes">
 			<ul id="quotelist">
 				<li><p>Wow. What a useful site. I feel like I've been searching for this my whole life</p></li>
@@ -47,7 +47,22 @@
 		<script src="jquery.js"></script>
 		<script src="jquery-ticker.js"></script>
 		<script>
+			var birthday = new Date("October 15, 1992");
+			var answer = document.getElementById("answer");
+			var smiley = document.getElementById("smiley");
+			var checkDate = function(date){
+				if (date.getDate() == birthday.getDate() && date.getMonth() == birthday.getMonth()){
+					answer.innerHTML = "YES!";
+					smiley.innerHTML = ":)"
+				} else {
+					answer.innerHTML = "NO";
+					smiley.innerHTML = ":(";
+				}
+			}
+		
+		
 			$(document).ready(function(){
+				checkDate(new Date());
 			    $('#quotelist').list_ticker({
 			        speed:7500,
 			        effect:'fade'
